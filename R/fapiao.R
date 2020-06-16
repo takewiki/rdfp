@@ -108,3 +108,34 @@ deal_fapiao <- function(file="data-raw/fp.xlsx") {
  return(mydata)
 
 }
+
+
+#' 处理发票信息
+#'
+#' @param file 文件
+#'
+#' @return 返回值
+#' @export
+#'
+#' @examples
+#' deal_fapiao2()
+deal_fapiao2 <- function(file="data-raw/客户编码.txt") {
+
+  bb  <- read.csv(file, header=FALSE, stringsAsFactors=FALSE)
+  ncount <- nrow(bb)
+  fp <-bb[6:ncount,]
+
+  addrPhone <- fp$V5;
+  addr <- get_fp_addr(addrPhone);
+  phone <-get_fp_phone(addrPhone);
+  bankNumber <- fp$V6;
+  bank <- get_fp_bank(bankNumber);
+  acctNumber <- get_fp_acctNumber(bankNumber);
+  custName <- fp$V2
+  taxNo <- fp$V4
+
+  mydata <-data.frame(custName,taxNo,addr,phone,bank,acctNumber,stringsAsFactors = F)
+
+  return(mydata)
+
+}

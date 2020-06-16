@@ -1,7 +1,7 @@
 Package: rdfp
 Type: Package
 Title: Invoice deal module for reshapeData
-Version: 1.0.1
+Version: 1.0.2
 Author: hulilei
 Maintainer: hulilei <hulilei@takewiki.com.cn>
 Description: More about what it does (maybe more than one line)
